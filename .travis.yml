@@ -1,0 +1,10 @@
+rvm:
+  - "1.9.3"
+
+before_script:
+  - psql -c 'create database dragon_tracker_test;' -U postgres
+
+script:
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
